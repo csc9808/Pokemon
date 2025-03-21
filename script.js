@@ -114,6 +114,30 @@ function page2TopAnim(){
     }
 })
 }
+document.addEventListener("DOMContentLoaded", function() {
+  const pokeballs = document.querySelectorAll('.pokeball');
+
+  pokeballs.forEach(pokeball => {
+    // Store the original source
+    const originalSrc = pokeball.getAttribute('src');
+
+    // Swap image when mouse enters
+    pokeball.addEventListener('mouseover', function() {
+      const hoverSrc = this.getAttribute('data-hover');
+      if (hoverSrc) {
+        this.setAttribute('src', hoverSrc);  // Set to hover image
+      }
+    });
+
+    // Reset image when mouse leaves
+    pokeball.addEventListener('mouseout', function() {
+      this.setAttribute('src', originalSrc);  // Reset to the original image
+    });
+  });
+});
+
+
+
 function page4Anim(){
   const videos = document.querySelectorAll('.page4 .page4-video .item video');
 
